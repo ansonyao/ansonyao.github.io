@@ -1,0 +1,37 @@
+---
+layout: post
+title:  "How to install scrapy on linux"
+date:   2016-04-24 21:07:44 -0700
+categories: jekyll update
+---
+
+Scrapy is a framework to retrieve information from the webpages. This article records the process to install Scrapy on a Redhat based linux system. I installed the scrapy on an Redhat EC2 instance but the process should also work for other linux system. 
+
+{% highlight bash %}
+sudo su
+yum groupinstall 'Development Tools'
+yum install -y libffi-devel libxslt-devel libxml2-devel openssl-devel python-devel mysql-devel
+{% endhighlight %}
+
+The above commands prepared necessary environment to compile the project. Now we are ready to install Scrapy with 
+
+{% highlight bash %}
+pip install scrapy
+{% endhighlight %}
+
+This command will install the scrapy. Note that when it is successful, we still need to configure the path to make the scrapy command work.
+
+{% highlight bash %}
+export PATH=$PATH:/usr/local/bin
+{% endhighlight %}
+
+Now we are ready to go. run scrapy!
+
+{% highlight bash %}
+scrapy crawl yourspider
+{% endhighlight %}
+
+
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
