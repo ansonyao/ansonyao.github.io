@@ -31,16 +31,3 @@ Now we are ready to go. run scrapy!
 scrapy crawl yourspider
 {% endhighlight %}
 
-The final step is let the system remember the path of scrapy in future. This can be achieved by adding a file in /etc/profile.d folder. For example, we can add a file scrapy.sh using
-
-{% highlight bash %}
-vim /etc/profile.d/scrapy.sh
-{% endhighlight %}
-
-Then we add following two lines.
-{% highlight bash %}
-export scrapy = /usr/local/bin/scrapy
-export PATH=$PATH:$scrapy
-{% endhighlight %}
-
-Now Linux knows the command scrapy everytime we login. 
