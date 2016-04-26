@@ -5,7 +5,7 @@ date:   2016-04-24 21:07:44 -0700
 categories: jekyll update
 ---
 
-Scrapy is a framework to retrieve information from the webpages. This article records the process to install Scrapy on a Redhat based linux system. I installed the scrapy on an Redhat EC2 instance but the process should also work for other linux system. 
+Scrapy is a framework to retrieve information from the webpages. This article shows the process to install Scrapy on a Redhat based linux system. I installed the scrapy on an Redhat EC2 instance but similar process should also work for other linux systems. 
 
 {% highlight bash %}
 sudo su
@@ -31,7 +31,16 @@ Now we are ready to go. run scrapy!
 scrapy crawl yourspider
 {% endhighlight %}
 
+The final step is let the system remember the path of scrapy in future. This can be achieved by adding a file in /etc/profile.d folder. For example, we can add a file scrapy.sh using
 
-[jekyll-docs]: http://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+{% highlight bash %}
+vim /etc/profile.d/scrapy.sh
+{% endhighlight %}
+
+Then we add following two lines.
+{% highlight bash %}
+export scrapy = /usr/local/bin/scrapy
+export PATH=$PATH:$scrapy
+{% endhighlight %}
+
+Now Linux knows the command scrapy everytime we login. 
