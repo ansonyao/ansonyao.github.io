@@ -6,13 +6,13 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Enxin Yao's blog
+title: Anson Yao's blog
 email: yaoenxin@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  The technical blog of Enxin Yao. Python, Swift, Javascript.
+  Blog of Anson Yao. Mainly about programming.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://bigface.github.io/" # the base hostname & protocol for your site
-github_username:  bigface
+url: "https://ansonyao.github.io/" # the base hostname & protocol for your site
+github_username:  ansonyao
 
 # Build settings
 markdown: kramdown
