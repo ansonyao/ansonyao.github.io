@@ -9,7 +9,7 @@
 title: Anson Yao's blog
 email: yaoenxin@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Blog of Anson Yao. A place for him to explore, think, and reflect.
+  Blog of Anson Yao. A place for him to record, think, and reflect.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ansonyao.github.io/" # the base hostname & protocol for your site
 github_username:  ansonyao
