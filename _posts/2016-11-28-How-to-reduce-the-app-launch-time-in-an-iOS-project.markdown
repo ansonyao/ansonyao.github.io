@@ -1,21 +1,21 @@
 ---
 layout: post
-title:  "How to reduce the app launch time in a Swift based project"
+title:  "How-to-reduce-the-app-launch-time-in-an-iOS-project"
 date:   2016-11-28 22:35:00 -0700
 categories: jekyll update
 ---
 
-What is a good start time for an app? If you ask your boss, the answer must be something like the shorter the better, right? As an engineer, we need numbers. Here you go: less than 400 ms is recommended in the [WWDC video](https://developer.apple.com/videos/play/wwdc2016/406/). 
+What is a good start time for an app? If you ask your manager, the answer must be something like the shorter the better, right? As an engineer, we need numbers. Here you go: less than 400 ms is recommended in the [WWDC video](https://developer.apple.com/videos/play/wwdc2016/406/). 
 
-I have been using third party management tools like cocoapods for a lot because they really make life easier! However, since cocoapods use framework (aka, dynamic libraries) to import the third party libraries, we are at an disadvantage in terms of launch time! 
+If you have been using third party management tools like cocoapods, are at an disadvantage in terms of launch time! I am using cocoapods in basically everyone of my projects because dependency management really makes life easier! However, since cocoapods use framework (aka, dynamic libraries) to import the third party libraries, it makes the app launch time longer. For detailed explainnation on why dynamic libs are bad for launch time, just check out this [WWDC video](https://developer.apple.com/videos/play/wwdc2016/406/).
 
-It is not very hard to get around this though. If the launch time really matters to your app, just ditch frameworks and copy the source code of those libs and compile them along with your project. In addition, you also get the evil power to arbitrarily revise the code of those libs (which is anti-pattern for sure). Ah, let's assume you did not run into that Swift version hassle! 
+It is not very hard to get around this though. If the launch time really matters to your app, just ditch frameworks and copy the source code of those libs and compile them along with your project. Ah, let's assume you did not run into that Swift version hassle first! 
 
-Anyway, that is what I got. Please feel free to email me if you have other good ideas! (yaoenxin@gmail.com)
+Anyway, that is what I got. Feel free to email me if you have other good ideas! (yaoenxin@gmail.com)
 
-Using framework is bad for launch time for sure, but how bad is it? Again, we are engineers. What is the number?
+Using framework is bad for launch time for sure, but how bad is it? Again, we are engineers. What are the numbers?
 
-In order to get a rough idea of the number, I made a Swift-based demo project which tries to mimic a project where cocoapods is used to import several well-known third party libraries. 
+In order to get a rough idea of the numbers, I made a Swift-based demo project which tries to mimic a project where cocoapods is used to import several well-known third party libraries. 
 
 The Podfile looks like this:
 
@@ -35,7 +35,7 @@ pod 'GoogleMaps', '~> 2.1'
 The launch time is measured by adding environment variable in XCode project scheme editor DYLD_PRINT_STATISTICS. 
 ![image](/assets/images/dyld_print.png)
 
-For cold start and hot strat, I tried my best to minic a code start, i.e., dynamic libs are not brouhgt into memeory yet by other apps when demo app starts to launch. So in human words, I basically restarted my cell phone before clicking on that little icon of my demo app...
+For cold start and hot strat, I tried my best to minic a code start, i.e., dynamic libs are not brouhgt into memeory yet before our demo app starts to launch. So in human words, I basically restarted my cell phone before clicking on that little icon of my demo app...
 
 
 # The loading time (with iPhone 6s+) is printed as follows: 
