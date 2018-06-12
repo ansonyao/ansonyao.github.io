@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Thread Safety in Swfit"
+title:  "Thread Safety in Swift"
 date:   2018-06-11 21:07:05 -0700
 categories: jekyll update
 ---
@@ -13,6 +13,6 @@ Here is a summary afer I looked into the thread safety in Swift.
 there is a risk that your app may crash. Just keep in mind not to access the same array or dictionary from different threads. 
 If you really have to, create a serial dispatch queue and make sure all operations on the object happens in serial. 
 2. Swift objects are not thread safe. It is actually unsafe to read and write to same variable in multiple threads. There is proposal but Swift does not support @atomic yet.
-2. It is possible to create thread safe Arrays and Dictionaries using locks or semaphores. There are a bunch of tutorials on this.
-3. In most scenarios, just keep in mind to update the models in the view controller in the main thread will be sufficient.
+3. It is possible to create thread safe Arrays and Dictionaries using locks or semaphores. There are a bunch of tutorials on this.
+4. The key takeaway is that we should keep in mind to update the models in the view controller in the main thread.
 
